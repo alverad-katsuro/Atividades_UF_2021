@@ -14,7 +14,7 @@ public class Contato {
         this.email = "falta definir";
     }
 
-    public void setName(String nome) {z
+    public void setName(String nome) {
         this.nome = nome;
     }
 
