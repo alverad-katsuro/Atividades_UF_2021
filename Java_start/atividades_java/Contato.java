@@ -1,4 +1,4 @@
-package atividades_java;
+package Java_start.atividades_java;
 
 public class Contato {
     private String nome;

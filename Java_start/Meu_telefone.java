@@ -1,4 +1,6 @@
-import atividades_java.*;
+package Java_start;
+
+import Java_start.atividades_java.*;
 
 public class Meu_telefone {
     private static Agenda agenda = new Agenda();
