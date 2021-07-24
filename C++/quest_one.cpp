@@ -37,11 +37,27 @@ void compara(string palavra, string palavra_invertida){
     }
 };
 
+string uppercase_for_string(string palavra){
+    int k;
+    int size = palavra.length();
+    string palavra_up;
+    for (k = 0; k < size ; k++){
+        if (palavra[k] >= 97 && palavra[k] <= 122){
+            palavra_up += (palavra[k] -32);
+        } else {
+            palavra_up += palavra[k];
+        }
+    }
+    /*cout << "A palavra é: " << palavra_up;*/
+    return palavra_up;
+};
+
 int main() {
     string palavra;
     string palavra_invertida;
     cout << "Digite uma palavra: ";
     getline(cin, palavra);
+    palavra = uppercase_for_string(palavra);
     palavra_invertida = inverte_string(palavra);
     compara(palavra, palavra_invertida);
 };
