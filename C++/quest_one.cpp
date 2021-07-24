@@ -18,7 +18,7 @@ string inverte_string(string palavra) {
     return palavra_temp;
 };
 
-void compara(string palavra, string palavra_invertida){
+bool compara(string palavra, string palavra_invertida){
     int len = palavra.size();
     bool palindromo = true;
     for (len >= 0; len--;){
@@ -27,14 +27,24 @@ void compara(string palavra, string palavra_invertida){
         cout << (palavra[len] != palavra_invertida[len]) << "\n";
         */
         if (palavra[len] != palavra_invertida[len]){
-            cout << palavra << " não é um Palíndromo\n";
             palindromo = false;
             break;
         }
     }
-    if (palindromo){
-    cout << palavra << " é um Palíndromo\n";
+    return palindromo;
+};
+
+string stripando_string(string palavra){
+    int k;
+    int size = palavra.length();
+    string palavra_stripada;
+    for (k = 0; k < size ; k++){
+        if (palavra[k] != 20){
+            palavra_stripada += palavra[k];
+        }
     }
+    /*cout << "A palavra é: " << palavra_up;*/
+    return palavra_stripada;
 };
 
 string uppercase_for_string(string palavra){
@@ -55,9 +65,18 @@ string uppercase_for_string(string palavra){
 int main() {
     string palavra;
     string palavra_invertida;
+    string palavra_ori;
+    bool palindromo;
     cout << "Digite uma palavra: ";
     getline(cin, palavra);
+    palavra_ori = palavra;
+    palavra = stripando_string(palavra);
     palavra = uppercase_for_string(palavra);
     palavra_invertida = inverte_string(palavra);
-    compara(palavra, palavra_invertida);
+    palindromo = compara(palavra, palavra_invertida);
+    if (palindromo){
+        cout << palavra_ori << " é um Palíndromo\n";
+    } else {
+            cout << palavra_ori << " não é um Palíndromo\n";
+    }
 };
