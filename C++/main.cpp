@@ -4,6 +4,13 @@
 
 using namespace std;
 
+int main(){
+    string palavra = "Oie";
+    cout << "O comprimento da palavra é: " << !true << "\n";
+    return 0;
+};
+
+/*
 int main() {
     contaBancaria conta;
     conta = inicializa(11, 100);
@@ -19,3 +26,4 @@ int main() {
     cout << "depois da movimentação \n";
     imprime(conta);
 }
+*/

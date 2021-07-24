@@ -1,4 +1,4 @@
-package Java_start.atividades_java;
+package atividades_java;
 public class Maior_valor {
     
     public static void main(String[] args) {

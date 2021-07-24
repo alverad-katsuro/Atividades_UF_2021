@@ -1,4 +1,4 @@
-package Java_start.atividades_java;
+package atividades_java;
 
 public class Agenda {
     private Contato[] agenda = new Contato[100];
