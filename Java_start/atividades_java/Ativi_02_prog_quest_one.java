@@ -8,10 +8,7 @@ import java.util.Scanner;
  */
 public class Ativi_02_prog_quest_one {
     public static void main(String[] args) {
-        menu_temps();
         /*
-        fahrenheit();
-        celsius();
         list_is_even();
         double hipo;
         int menor;
@@ -22,7 +19,13 @@ public class Ativi_02_prog_quest_one {
         instructions();
         System.out.printf("A hipotenusa mede %.2f%n", hipo);
         System.out.printf("O menor resultado é %d%n", menor);
-        System.out.printf("O valor do float é %.2f%n", valor);*/
+        System.out.printf("O valor do float é %.2f%n", valor);
+        fahrenheit();
+        celsius();
+        menu_temps();
+        System.out.printf("A Distancia entro os pontos mede %.2f%n", (distance(5.0, 4.0, 1.0, 1.0)));
+        */
+        mystery();
     }
 
     public static float intToFloat(float number) {

@@ -1,3 +1,5 @@
+package atividades_java;
+
 public class Teste {
     public static void mystery() {
         int x = 1;   
