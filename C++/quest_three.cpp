@@ -1,10 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 #include <iostream>
 using namespace std;
 
 int main() {
-    char c;
-    cout << "Enter a character: ";
-    cin >> c;
-    cout << "ASCII Value of " << c << " is " << int(c) << "\n";
-    return 0;
+    setlocale(LC_ALL, "Portuguese");
+    int i;
+    unsigned char texto;
+    texto = 138;
+    printf("Digite uma letra: ");
+    cout << "A letra é no cout " << texto << "\n";
+    printf("A letra é %c\n", char.size);
+    /*
+    for(i=32;i<255;i++){
+        if(i%10==0)
+            printf("\n");
+            printf("%d = %c\t", i, i);
+    }
+    printf("\n");
+    */
 }
