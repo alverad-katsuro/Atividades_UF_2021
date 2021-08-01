@@ -1,0 +1,108 @@
+package atividade_three.classes;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Pessoas {
+    private String nome = "Sem nome";
+    private short idade = 0;
+    private byte dia = 0;
+    private byte mes = 0;
+    private short ano = 0;
+
+    public Pessoas(String nome, byte dia, byte mes, short ano) {
+        setNome(nome);
+        setAno(ano);
+        setDia(dia);
+        setMes(mes);
+    }
+
+    public Pessoas() {
+    }
+
+    public void calculaIdade_auto() {
+        SimpleDateFormat format_year = new SimpleDateFormat("yyyy");
+        SimpleDateFormat format_mouth = new SimpleDateFormat("MM");
+        SimpleDateFormat format_day = new SimpleDateFormat("dd");
+        Date date = new Date(System.currentTimeMillis());
+        System.out.printf("A idade atual é %d anos %d meses e %d dias %n", (format_year.format(date)), (format_mouth.format(date)), (format_day.format(date)));
+    }
+
+    public void calculaIdade() {
+        Byte dia, mes;
+        Short ano;
+        Scanner sc = new Scanner(System.in);
+        System.out.printf("Digite o dia: ");
+        dia = sc.nextByte();
+        System.out.printf("Digite o mes: ");
+        mes = sc.nextByte();
+        System.out.printf("Digite o ano: ");
+        ano = sc.nextShort();
+        sc.close();
+        if (getMes() > mes) {
+            setIdade((short)(ano - getAno()));
+            System.out.printf("A idade do %s é %d anos%n", getNome(), getIdade());
+        } else if (mes == getMes()) {
+            if (dia >= getDia()){
+                setIdade((short)(ano - getAno()));
+                System.out.printf("A idade do %s é %d anos%n", getNome(), getIdade());
+            }
+        } else if (mes > getMes()) {
+            setIdade((short) (ano - getAno() - 1));
+            System.out.printf("A idade do %s é %d anos%n", getNome(), getIdade());
+        }
+    }
+
+    public  void ajustaDataDeNascimento() {
+        Scanner sc = new Scanner(System.in);
+        System.out.printf("Digite o dia de nascimento: ");
+        setDia(sc.nextByte());
+        System.out.printf("Digite o mes de nascimento: ");
+        setMes(sc.nextByte());
+        System.out.printf("Digite o ano de nascimento: ");
+        setAno(sc.nextShort());
+        sc.close();
+        
+    }
+
+    public void setAno(short ano) {
+        this.ano = ano;
+    }
+
+    public short getAno() {
+        return ano;
+    }
+
+    public void setDia(byte dia) {
+        this.dia = dia;
+    }
+
+    public byte getDia() {
+        return dia;
+    }
+
+    public void setIdade(short idade) {
+        this.idade = idade;
+    }
+
+    public short getIdade() {
+        return idade;
+    }
+
+    public void setMes(byte mes) {
+        this.mes = mes;
+    }
+
+    public byte getMes() {
+        return mes;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
