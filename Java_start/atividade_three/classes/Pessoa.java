@@ -1,24 +1,21 @@
-package atividade_three.classes;
+package classes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Pessoas {
+public class Pessoa {
     private String nome = "Sem nome";
     private short idade = 0;
     private byte dia = 0;
     private byte mes = 0;
     private short ano = 0;
 
-    public Pessoas(String nome, byte dia, byte mes, short ano) {
+    public Pessoa(String nome, byte dia, byte mes, short ano) {
         setNome(nome);
         setAno(ano);
         setDia(dia);
         setMes(mes);
-    }
-
-    public Pessoas() {
     }
 
     public void calculaIdade_auto() {
@@ -39,7 +36,6 @@ public class Pessoas {
         mes = sc.nextByte();
         System.out.printf("Digite o ano: ");
         ano = sc.nextShort();
-        sc.close();
         if (getMes() > mes) {
             setIdade((short)(ano - getAno()));
             System.out.printf("A idade do %s é %d anos%n", getNome(), getIdade());

@@ -1,4 +1,4 @@
-import atividade_three.classes.*;
+import classes.*;
 
 public class Quests_ativiade_three {
     public static void main(String[] args) {
@@ -11,7 +11,6 @@ public class Quests_ativiade_three {
         control.aumenta_vol();
         control.aumenta_vol();
         control.volume_is();
-        /*
         Elevador elevador = new Elevador(3, 3);
         elevador.sobe();
         elevador.sobe();
@@ -19,8 +18,8 @@ public class Quests_ativiade_three {
         elevador.sobe();
         elevador.desce();
         elevador.entra();
-        Pessoas newton = new Pessoas("Isaac Newton", (byte)4, (byte)1, (short)1643);
-        Pessoas albert = new Pessoas("Albert Einstein", (byte)14, (byte)3, (short)1879);
+        Pessoa newton = new Pessoa("Isaac Newton", (byte)4, (byte)1, (short)1643);
+        Pessoa albert = new Pessoa("Albert Einstein", (byte)14, (byte)3, (short)1879);
         Agenda agenda = new Agenda();
         agenda.armazenaPessoa(newton);
         agenda.armazenaPessoa(albert);
@@ -41,6 +40,7 @@ public class Quests_ativiade_three {
         ufpa.exibeDepartamentos();
         albert.calculaIdade();
         newton.calculaIdade();
+        /*
         */
     }
 }

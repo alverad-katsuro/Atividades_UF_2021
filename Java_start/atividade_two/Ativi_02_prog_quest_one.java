@@ -1,5 +1,4 @@
-/*package atividades_java;
-*/
+
 import java.lang.Math;
 import java.util.Scanner;
 
@@ -85,6 +84,7 @@ public class Ativi_02_prog_quest_one {
                 }
             }
         }
+        sc.close();
         for (;cont >= 0; cont--) {
             String resp;
             if (isEven(numeros[cont])) {
@@ -104,6 +104,7 @@ public class Ativi_02_prog_quest_one {
         fahreheit = sc.nextDouble();
         celsius_temp = 5/9 * (fahreheit - 32);
         System.out.printf("A temperatura em Celsius é: %.2f ºC %n", celsius_temp);
+        sc.close();
     }
 
     public static void fahrenheit() {
@@ -114,6 +115,7 @@ public class Ativi_02_prog_quest_one {
         celsius_temp = sc.nextDouble();
         fahreheit = 9/5 * celsius_temp + 32;
         System.out.printf("A temperatura em Fahrenheit é: %.2f ºF %n", fahreheit);
+        sc.close();
     }
 
     public static void menu_temps() {
@@ -121,6 +123,7 @@ public class Ativi_02_prog_quest_one {
         int escolha;
         System.out.printf("Digite:\n1. Celsius --> Fahrenheit\n2. Fahrenheit --> Celsius\nEscolha: ");
         escolha = sc.nextInt();
+        sc.close();
         switch (escolha) {
             case 1:
                 fahrenheit();

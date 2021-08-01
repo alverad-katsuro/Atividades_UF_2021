@@ -1,11 +1,11 @@
-package atividade_three.classes;
+package classes;
 
 
 public class Agenda {
-    private Pessoas[] agenda = new Pessoas[10];
+    private Pessoa[] agenda = new Pessoa[10];
     private int pessoas_adicionados = 0;
 
-    public Agenda(Pessoas[] agenda){
+    public Agenda(Pessoa[] agenda){
         this.agenda = agenda;
     }
 
@@ -13,11 +13,11 @@ public class Agenda {
         System.out.println("Sua agenda está vazia e cabe até 10 pessoas");
     }
 
-    public Pessoas[] getAgenda() {
+    public Pessoa[] getAgenda() {
         return this.agenda;
     }
 
-    public void armazenaPessoa(Pessoas pessoa) {
+    public void armazenaPessoa(Pessoa pessoa) {
         if (this.pessoas_adicionados < 10) {
             for(int i = 0; i < 10; i++) {
                 if (this.agenda[i] == null) {
@@ -75,7 +75,7 @@ public class Agenda {
     }
 
     public void createPessoa(String nome, byte dia, byte mes, short ano) {
-        armazenaPessoa((new Pessoas(nome, dia, mes, ano)));
+        armazenaPessoa((new Pessoa(nome, dia, mes, ano)));
     }
 
 }

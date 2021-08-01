@@ -1,4 +1,4 @@
-package atividades_java;
+package classes;
 
 public class Teste {
     public static void mystery() {

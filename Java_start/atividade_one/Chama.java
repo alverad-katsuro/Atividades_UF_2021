@@ -1,4 +1,4 @@
-import atividades_java.*;
+import classes.*;
 
 public class Chama {
     public static void main(String[] args) { 

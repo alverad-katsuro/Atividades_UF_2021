@@ -1,7 +1,7 @@
-import atividades_java.*;
+import classes.Agenda_telefonica;
 
 public class Meu_telefone {
-    private static Agenda agenda = new Agenda();
+    private static Agenda_telefonica agenda = new Agenda_telefonica();
     public static void main(String[] args) {
         agenda.createContato("Alfredo", "alfredo@gmail.com");
         agenda.buscaContato("Alfredo");

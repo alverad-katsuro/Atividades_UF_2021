@@ -1,4 +1,4 @@
-package atividades_java;
+package classes;
 public class Mult_soma_zero_at_trinta {
     
     public static void main(String[] args) {

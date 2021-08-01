@@ -1,8 +1,8 @@
-package atividade_three.classes;
+package classes;
 
 public class Departamento {
     private String nome;
-    private Pessoas[] pessoas = new Pessoas[10];
+    private Pessoa[] pessoas = new Pessoa[10];
     private int pessoas_add = 0;
 
     public Departamento(String nome){
@@ -32,7 +32,7 @@ public class Departamento {
         }
     }
 
-    public void addPessoas (Pessoas nome) {
+    public void addPessoas (Pessoa nome) {
         if (this.pessoas_add < 10) {
             for(int i = 0; i < 10; i++) {
                 if (this.pessoas[i] == null) {

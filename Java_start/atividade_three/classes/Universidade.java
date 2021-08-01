@@ -1,4 +1,4 @@
-package atividade_three.classes;
+package classes;
 
 public class Universidade {
     private String nome;   

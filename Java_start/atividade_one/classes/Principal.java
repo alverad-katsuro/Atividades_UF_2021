@@ -1,4 +1,4 @@
-package atividades_java;
+package classes;
 public class Principal { 
 
     public static void main(int teste) {

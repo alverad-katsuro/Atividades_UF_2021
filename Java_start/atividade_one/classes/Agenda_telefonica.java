@@ -1,14 +1,14 @@
-package atividades_java;
+package classes;
 
-public class Agenda {
+public class Agenda_telefonica {
     private Contato[] agenda = new Contato[100];
     private int contatos_adicionados = 0;
 
-    public Agenda(Contato[] agenda){
+    public Agenda_telefonica(Contato[] agenda){
         this.agenda = agenda;
     }
 
-    public Agenda(){
+    public Agenda_telefonica(){
         System.out.println("Sua agenda está vazia e cabe até 100 contatos");
     }
 

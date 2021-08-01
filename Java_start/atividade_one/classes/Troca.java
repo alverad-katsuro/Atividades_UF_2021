@@ -1,4 +1,4 @@
-package atividades_java;
+package classes;
 
 public class Troca {
     private double a = 100;

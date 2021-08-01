@@ -1,4 +1,4 @@
-package atividade_three.classes;
+package classes;
 
 public class Televisao {
     private int volume = 0;
