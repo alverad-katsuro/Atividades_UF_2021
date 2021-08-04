@@ -5,11 +5,11 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Pessoa {
-    private String nome = "Sem nome";
-    private short idade = 0;
-    private byte dia = 0;
-    private byte mes = 0;
-    private short ano = 0;
+    private String nome;
+    private short idade;
+    private byte dia;
+    private byte mes;
+    private short ano;
 
     public Pessoa(String nome, byte dia, byte mes, short ano) {
         setNome(nome);

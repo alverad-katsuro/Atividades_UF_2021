@@ -2,6 +2,7 @@ import classes.*;
 
 public class Quests_ativiade_three {
     public static void main(String[] args) {
+        /*
         Televisao tele = new Televisao();
         ControleRemoto control = new ControleRemoto(tele);
         control.aumenta_canal();
@@ -18,8 +19,6 @@ public class Quests_ativiade_three {
         elevador.sobe();
         elevador.desce();
         elevador.entra();
-        Pessoa newton = new Pessoa("Isaac Newton", (byte)4, (byte)1, (short)1643);
-        Pessoa albert = new Pessoa("Albert Einstein", (byte)14, (byte)3, (short)1879);
         Agenda agenda = new Agenda();
         agenda.armazenaPessoa(newton);
         agenda.armazenaPessoa(albert);
@@ -38,9 +37,10 @@ public class Quests_ativiade_three {
         ufpa.addDepartamento(biologia);
         ufpa.addDepartamento(fisica);
         ufpa.exibeDepartamentos();
+        */
+        Pessoa newton = new Pessoa("Isaac Newton", (byte)4, (byte)1, (short)1643);
+        Pessoa albert = new Pessoa("Albert Einstein", (byte)14, (byte)3, (short)1879);
         albert.calculaIdade();
         newton.calculaIdade();
-        /*
-        */
     }
 }
