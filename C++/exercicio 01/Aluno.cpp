@@ -41,7 +41,6 @@ void getConceito(Aluno *aluno){
     for (int i = 0; i < 4; i++){
         result += aluno->notas[i];
     }
-    printf("A soma é: %d\n", result);
     if (result/4 < 5){
         cout << "Conceito: Insuficiente\n";
     } else if (result / 4 >= 5 && result / 4 < 7){
