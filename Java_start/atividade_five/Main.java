@@ -2,11 +2,13 @@ import classes.*;
 
 public class Main {
     public static void main(String[] args) {
-        Calcula_pi.calcula_pi(300);
+        Calcula_pi.calcula_pi(200000);
         /*
         double tes = 5.141596;
-        String tess = String.format("%.6f", tes);
-        System.out.printf("\033[1;34mO número truncado é: \033[1;97m%s%n", tess.substring(0,7)); 
+        String tess = String.format("%.6f", tes).substring(0,7);
+        System.out.printf("\033[1;34mO número truncado é: \033[1;97m%s%n", "5,14159"); 
+        System.out.printf("\033[1;34mO número truncado é: \033[1;97m%s%n", tess); 
+        System.out.printf("\033[1;34mO número truncado é: \033[1;97m%b%n", ("5,14159".equals(tess))); 
         Calcula_ex.calcula_ex(13);
         System.out.printf("\033[1;34mA estimativa é: \033[1;97m%.4f%n", Estima.estima(25)); 
         System.out.printf("\033[1;34mA o fatorial é: \033[1;97m%d%n", Fatorial.fatorial(1)); 
