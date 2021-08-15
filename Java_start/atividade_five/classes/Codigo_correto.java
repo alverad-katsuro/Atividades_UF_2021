@@ -2,16 +2,14 @@ package classes;
 
 public class Codigo_correto {
     public void letra_a(int age) {
-        if (age >= 65) {
+        if (age >= 65) // --> sem o ";"
             System.out.println("Age is greater than or equal to 65");
-        } else{
-            System.out.println("Age in less than 65");
-        }
+        else
+            System.out.println("Age in less than 65"); //com --> aspas no fim
     }
     
     public void letra_b() {
-        int total = 0;
-        int x = 1;
+        int total = 0, x = 1;
         while (x <= 10) {
             total += x;
             ++x;

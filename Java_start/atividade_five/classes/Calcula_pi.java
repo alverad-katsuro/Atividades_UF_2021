@@ -14,7 +14,7 @@ public class Calcula_pi {
                     pi += Calcula_pi.termos_positivos(i);
                     //System.out.println(Calcula_pi.termos_negativos(i));
                 }
-                System.out.printf("O valor de pi para %d termos é %.16%n", i, pi);
+                System.out.printf("O valor de pi para %d termos é %.16f%n", i, pi);
                 if (posicao == -1){
                     String pi_convertido = String.format("%.10f", pi).substring(0, 7);
                     if (pi_esperado.equals(pi_convertido)) {
