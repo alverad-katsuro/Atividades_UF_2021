@@ -1,9 +1,12 @@
 public class Teste {
     public static void main(String[] args) {
         final int num = 6;
-        for (int i = 0; i < num; i++) 
+        int soma = 0;
+        for (int i = 0; i < num; i++) {
+            soma += X(i);
             System.out.println(X(i));
-        
+        }
+        System.out.println("A soma é: "+ soma);
     }
 
     public static int X(int n) {
