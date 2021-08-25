@@ -6,9 +6,8 @@ using namespace std;
 
 int main(){
     string palavra = "Oie";
-    int a[4];
-    a[0] = 5;
-    cout << "a[0] = " << a[1] << "\n";
+    int a = 5;
+    cout << &a << endl;
     return 0;
 };
 
