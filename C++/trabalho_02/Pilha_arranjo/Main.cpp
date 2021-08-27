@@ -44,8 +44,6 @@ string reverse_witch_pill(string palavra){
         }
         if (palavra[i] != ' ')
         {
-        printf("Inicio %d Fim %d\n", i, fim);
-        printf("'%c' espaco? %d\n", palavra[i], palavra[i] == '+');
         Empilha(palavra[i], &pilha_palava);    
         }
         
@@ -61,9 +59,9 @@ string reverse_witch_pill(string palavra){
 
 int main(int argc, char const *argv[]){
     string palavra;
-    cout << "Digite uma palavra: ";
+    cout << "\033[1;34mDigite uma palavra: \033[1;97m";
     getline(cin, palavra);
-    cout << reverse_witch_pill(low_str(palavra)) << endl;
+    cout << "\033[1;34mResposta: \033[1;97m" << reverse_witch_pill(low_str(palavra)) << endl;
     return 0;
 }
 
