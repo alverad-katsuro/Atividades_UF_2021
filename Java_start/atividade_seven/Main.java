@@ -10,5 +10,6 @@ public class Main extends Animal {
         zoo.addAnimal(urso);
         zoo.addAnimal(tuba);
         zoo.exibeTudo();
+        Menu_ingresso.chama_menu();
     }
 }
