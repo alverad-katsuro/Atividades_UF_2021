@@ -1,6 +1,6 @@
 import classes.*;
 
-public class Main extends Animal {
+public class Zoo extends Animal {
     public static void main(String[] args) {
         Mamifero camelo = new Mamifero("Camelo", "Mel", "Amarelo", "Terra", 150, 4, 2.0f);
         Mamifero urso = new Mamifero("Urso-do-Canadá", "Mel", "Vermelho", "Terra", 180, 4, 0.5f);
