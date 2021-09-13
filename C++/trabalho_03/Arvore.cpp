@@ -18,12 +18,15 @@ Arvore * inicializa(){
     arvore = (Arvore*)malloc(sizeof(Arvore));
     arvore->esquerda = NULL;
     arvore->direita = NULL;
+    arvore->dado;
     return arvore;
 }
 
 
-void addElement(int elemento, Arvore *arvore){
-    if (arvore->dado > elemento){
+void addElement(int elemento, Arvore *arvore){   
+    if (arvore->dado == '\0'){
+        arvore->dado = elemento;
+    } else if (arvore->dado > elemento){
         if (arvore->esquerda == NULL){
             arvore->esquerda = inicializa(elemento);
         } else {
@@ -35,20 +38,20 @@ void addElement(int elemento, Arvore *arvore){
         } else {
             addElement(elemento, arvore->direita);
         }
-    } else{
+    } else {
         cout<< "Dado já existente" << endl;
     }
 }
 
-int searchElement(int elemento, Arvore* arvore){
+bool searchElement(int elemento, Arvore* arvore){
     if (elemento == arvore->dado){
-        return arvore->dado;
+        return 1;
     } else if(elemento > arvore->dado && arvore->direita != NULL){
         return searchElement(elemento, arvore->direita);
     } else if(elemento < arvore->dado && arvore->esquerda != NULL){
         return searchElement(elemento, arvore->esquerda);
     } else {
-        return -1;
+        return 0;
     }
 }
 
@@ -57,19 +60,20 @@ void modulo_remove(int elemento, Arvore* arvore){
         Arvore* temp = (Arvore*)malloc(sizeof(Arvore)); 
         Arvore* anterior_temp;
         temp = arvore->direita;
-        anterior_temp;
+        anterior_temp = NULL;
         while (true){
             if (temp->esquerda == NULL){
                 arvore->dado = temp->dado;
                 if (temp->direita != NULL){
-                    temp = temp->direita;
+                    *temp = *temp->direita;
                 } else {
-                    anterior_temp->esquerda = NULL;
-                }
-                if (anterior_temp != NULL){
+                    if (anterior_temp != NULL && anterior_temp != arvore){
+                        anterior_temp->esquerda = NULL;
+                    } else {
+                        arvore->direita = NULL;
+                    }
                 }
                 break;
-
             } else {
                 anterior_temp = temp;
                 temp = temp->esquerda;
@@ -89,14 +93,14 @@ bool removeElement(int elemento, Arvore* arvore){
         modulo_remove(elemento, arvore);
         return true;
     } else if (elemento > arvore->dado && arvore->direita != NULL){
-        if (arvore->direita->direita == NULL && arvore->direita->esquerda == NULL){
+        if (arvore->direita->direita == NULL && arvore->direita->esquerda == NULL && arvore->direita->dado == elemento){
             arvore->direita = NULL;
             return true;
         } else {
             return removeElement(elemento, arvore->direita);
         }
     } else if (elemento < arvore->dado && arvore->esquerda != NULL){
-        if (arvore->esquerda->direita == NULL && arvore->esquerda->esquerda == NULL){
+        if (arvore->esquerda->direita == NULL && arvore->esquerda->esquerda == NULL && arvore->esquerda->dado == elemento){
             arvore->esquerda = NULL;
             return true;
         } else {
@@ -109,12 +113,12 @@ bool removeElement(int elemento, Arvore* arvore){
 }
 
 void em_ordem(Arvore* arvore){
-    if (arvore == NULL){
-        return;
-    } else {
-        em_ordem(arvore->esquerda);
+    if (arvore->dado != '\0' && arvore != NULL){
+        if (arvore->esquerda != NULL){em_ordem(arvore->esquerda);}
         cout << arvore->dado << " ";
-        em_ordem(arvore->direita);
+        if (arvore->direita != NULL){em_ordem(arvore->direita);}
+    } else {
+        return;
     }
 }
 
