@@ -43,6 +43,12 @@ void addElement(int elemento, Arvore *arvore){
     }
 }
 
+void addElement(int array[], int size, Arvore *arvore){
+    for (int i = 0; i < size; i++){
+        addElement(array[i], arvore);
+    }    
+}
+
 bool searchElement(int elemento, Arvore* arvore){
     if (elemento == arvore->dado){
         return 1;
