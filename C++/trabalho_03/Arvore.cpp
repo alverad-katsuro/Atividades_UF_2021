@@ -53,24 +53,29 @@ int searchElement(int elemento, Arvore* arvore){
 }
 
 void modulo_remove(int elemento, Arvore* arvore){
-    if (arvore->direita == NULL && arvore->esquerda == NULL){
-        *arvore = *inicializa();
-        cout<< "entro" <<endl;
-    } else if (arvore->direita != NULL && arvore->esquerda != NULL) {
+    if (arvore->direita != NULL && arvore->esquerda != NULL) {
         Arvore* temp = (Arvore*)malloc(sizeof(Arvore)); 
+        Arvore* anterior_temp;
         temp = arvore->direita;
+        anterior_temp;
         while (true){
             if (temp->esquerda == NULL){
                 arvore->dado = temp->dado;
                 if (temp->direita != NULL){
-                    *temp = *temp->direita;
+                    temp = temp->direita;
+                } else {
+                    anterior_temp->esquerda = NULL;
+                }
+                if (anterior_temp != NULL){
                 }
                 break;
+
             } else {
-                *temp = *temp->esquerda; 
+                anterior_temp = temp;
+                temp = temp->esquerda;
             }
         } 
-    } else {
+    } else if (arvore->direita != NULL || arvore->esquerda != NULL) {
         if (arvore->direita != NULL){
             *arvore = *arvore->direita;
         } else {
@@ -81,18 +86,35 @@ void modulo_remove(int elemento, Arvore* arvore){
 
 bool removeElement(int elemento, Arvore* arvore){
     if (elemento == arvore->dado){
-        cout<< "entro =" <<endl;
         modulo_remove(elemento, arvore);
         return true;
     } else if (elemento > arvore->dado && arvore->direita != NULL){
-        cout<< "entro >" <<endl;
-        return removeElement(elemento, arvore->direita);
+        if (arvore->direita->direita == NULL && arvore->direita->esquerda == NULL){
+            arvore->direita = NULL;
+            return true;
+        } else {
+            return removeElement(elemento, arvore->direita);
+        }
     } else if (elemento < arvore->dado && arvore->esquerda != NULL){
-        cout<< "entro <" <<endl;
-        return removeElement(elemento, arvore->esquerda);
-    } else if (arvore->esquerda != NULL && arvore->direita != NULL){
+        if (arvore->esquerda->direita == NULL && arvore->esquerda->esquerda == NULL){
+            arvore->esquerda = NULL;
+            return true;
+        } else {
+            return removeElement(elemento, arvore->esquerda);
+        }
+    } else if (arvore->esquerda == NULL && arvore->direita == NULL){
         return false;
     }
     return false;
+}
+
+void em_ordem(Arvore* arvore){
+    if (arvore == NULL){
+        return;
+    } else {
+        em_ordem(arvore->esquerda);
+        cout << arvore->dado << " ";
+        em_ordem(arvore->direita);
+    }
 }
 
