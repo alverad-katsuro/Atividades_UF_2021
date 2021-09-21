@@ -11,7 +11,7 @@ int main(int argc, char const *argv[]){
     int a[23] = {86, 11, 7, 35, 170, 2, 120, 21, 88, 152, 31, 12, 181, 28, 134, 70, 1, 85, 25, 77, 10, 128, 198};
     addElement(a, 23, ar);
     em_ordem(ar);
-    cout << endl;
+    cout << "\n" << endl;
     /*
     // Aqui, para facilitar sua vida coloquei os valores/saida de acordo com a arvore da 'pagina 12' & 'aula04_2_arvore.pdf'
     //cout << ar->dado <<endl;
