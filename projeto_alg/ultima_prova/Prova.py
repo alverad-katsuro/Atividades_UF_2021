@@ -106,48 +106,44 @@ dezmil = sample(range(1, 200_000),  10_000)
 cemmil = sample(range(1, 200_000),  100_000)
 #%%
 def ordernar():
-  x = 1
-  while x > 0:
-    try:
-      x = int(input("Digite:\n1. BubbleSort.\n2. QuickSort\n3. CountingSort\n0. Sair\nEscolha: "))
-      if (x == 0):
-        break
-      y = int(input("Digite:\n1. Vetor com 10 elementos\n2. Vetor com 100 elementos\n3. Vetor com 1.000 elementos\n4. Vetor com 10.000 elementos\n5. Vetor com 100.000 elementos\nEscolha: "))
-      if (x == 1):
-        if (y == 1):
-          BubbleSort(dez)
-        elif (y == 2):
-          BubbleSort(cem)
-        elif (y == 3):
-          BubbleSort(mil)
-        elif (y == 4):
-          BubbleSort(dezmil)
-        elif (y == 5):
-          BubbleSort(cemmil)
-      elif (x == 2):
-        if (y == 1):
-          quickSort(dez)
-        elif (y == 2):
-          quickSort(cem)
-        elif (y == 3):
-          quickSort(mil)
-        elif (y == 4):
-          quickSort(dezmil)
-        elif (y == 5):
-          quickSort(cemmil)
-      if (x == 3):
-        if (y == 1):
-          counting_sort(dez)
-        elif (y == 2):
-          counting_sort(cem)
-        elif (y == 3):
-          counting_sort(mil)
-        elif (y == 4):
-          counting_sort(dezmil)
-        elif (y == 5):
-          counting_sort(cemmil)
-    except TypeError:
-      ordernar()
+  x = int(input("Digite:\n1. BubbleSort.\n2. QuickSort\n3. CountingSort\nEscolha: "))
+  if (x > 0 and x < 4):
+    y = (input("Digite:\n1. Vetor com 10 elementos\n2. Vetor com 100 elementos\n3. Vetor com 1.000 elementos\n4. Vetor com 10.000 elementos\n5. Vetor com 100.000 elementos\nEscolha: "))
+    print(y)
+    y = int(y)
+  if (x == 1):
+    if (y == 1):
+      BubbleSort(dez.copy())
+    elif (y == 2):
+      BubbleSort(cem.copy())
+    elif (y == 3):
+      BubbleSort(mil.copy())
+    elif (y == 4):
+      BubbleSort(dezmil.copy())
+    elif (y == 5):
+      BubbleSort(cemmil.copy())
+  elif (x == 2):
+    if (y == 1):
+      quickSort(dez.copy())
+    elif (y == 2):
+      quickSort(cem.copy())
+    elif (y == 3):
+      quickSort(mil.copy())
+    elif (y == 4):
+      quickSort(dezmil.copy())
+    elif (y == 5):
+      quickSort(cemmil.copy())
+  if (x == 3):
+    if (y == 1):
+      counting_sort(dez.copy())
+    elif (y == 2):
+      counting_sort(cem.copy())
+    elif (y == 3):
+      counting_sort(mil.copy())
+    elif (y == 4):
+      counting_sort(dezmil.copy())
+    elif (y == 5):
+      counting_sort(cemmil.copy())
 
 #%%
 def dados_bub():
@@ -221,15 +217,33 @@ def sai_graphics():
   (grafico(pd.DataFrame(dados_bub_0_20k(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "BubbleSort"))
 
 #%%
+def ordena_tudo():
+  (grafico(pd.DataFrame(dados_quick(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "QuickSort"))
+  (grafico(pd.DataFrame(dados_count(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "CountingSort"))
+  (grafico(pd.DataFrame(dados_bub(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "BubbleSort"))
+
+#%%
 def menu():
   x = 1
   while x > 0:
-    x = int(input("Escolha:\n1. Mostrar os vetores de entrada.\n2. Ordenar vetor\n3. Exibir os Graficos -> Array Gerado aleatoriamente de tamanho 0 a 25mil bub e 0 a 100mil os outros dois\n0. Sair\nResposta: "))
+    x = int(input("Escolha:\n1. Mostrar os vetores de entrada.\n2. Ordenar vetor\n3. Ordena tudo\n4. Exibir os Graficos -> Array Gerado aleatoriamente de tamanho 0 a 25mil bub e 0 a 100mil os outros dois\n0. Sair\nResposta: "))
     if (x == 1):
-      print(f"{dez}\n\n{cem}\n\n{mil}\n\n{dezmil}\n\n{cemmil}")
+      y = int(input("Digite:\n1. Vetor com 10 elementos\n2. Vetor com 100 elementos\n3. Vetor com 1.000 elementos\n4. Vetor com 10.000 elementos\n5. Vetor com 100.000 elementos\nEscolha: "))
+      if (y == 1):
+        print(f"{dez}\n")
+      elif (y == 2):
+        print(f"{cem}\n")
+      elif (y == 3):
+        print(f"{mil}\n")
+      elif (y == 4):
+        print(f"{dezmil}\n")
+      elif (y == 5):
+        print(f"{cemmil}\n")
     elif (x == 2):
       ordernar()
     elif (x == 3):
+      ordena_tudo()
+    elif (x == 4):
       sai_graphics()
 #%%
 menu()
