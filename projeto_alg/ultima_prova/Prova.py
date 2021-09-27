@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 from matplotlib import pyplot as plt
 
+
 #%%
 def BubbleSort(lista, show_output=True):
   before = datetime.now()
@@ -65,38 +66,33 @@ def partition(lista, primeiro, ultimo, comparacoes, trocas):
   return direita, comparacoes, trocas
 
 #%%
-def conta_elementos(lista):
-  maior_valor = 0
-  comparacoes = 0
-  for k in lista:
-    if (maior_valor < k):
-      maior_valor = k
-    comparacoes += 1
-
-  lista_contagem = [0 for k in range(maior_valor + 1)]
-  for k in lista:
-    lista_contagem[k] += 1
-  for i in range(1, maior_valor + 1):
-    lista_contagem[i] += lista_contagem[i-1]
-  return lista_contagem, comparacoes
-
 def counting_sort(lista, show_output=True):
   before = datetime.now()
-  lista_contagem, comparacoes = conta_elementos(lista)
+  comparacoes = 0
   trocas = 0
-  saida_organizada = [0 for k in range(len(lista))]
-  indice = len(lista) - 1
-  while indice >= 0:
-      elemento_atual = lista[indice]
-      lista_contagem[elemento_atual] -= 1
-      posicao = lista_contagem[elemento_atual]
-      saida_organizada[posicao] = elemento_atual
-      indice -= 1
+  maior = 0
+  for v in lista:
+    if(maior < v):
+      maior = v
+    comparacoes += 1
+  maior +=1
+  c = [0 for k in range(maior)]
+  t = [0 for k in range(len(lista))]
+  for k in range(len(lista)):
+      c[lista[k]] = c[lista[k]] + 1
+  for i in range(1, maior):
+      c[i] = c[i] + c[i-1]
+  for i in range(len(lista)-1, -1, -1):
+      c[lista[i]] = c[lista[i]] - 1
+      t[c[lista[i]]] = lista[i]
+  for i in range(0, len(lista)):
+      lista[i] = t[i]
       trocas += 1
   after = datetime.now()
   if show_output:
-    print(f"Tempo para ordenar {(after - before).total_seconds()} segundos\nComparacoes {comparacoes}\nTrocas {trocas}\nLista de saida -> {saida_organizada}")
+    print(f"Tempo para ordenar {(after - before).total_seconds()} segundos\nComparacoes {comparacoes}\nTrocas {trocas}\nLista de saida -> {lista}")
   return len(lista), comparacoes, trocas, (after - before).total_seconds()
+
 
 #%%
 dez = sample(range(200_000, 1, -2),  10)
