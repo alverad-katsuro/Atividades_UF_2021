@@ -188,35 +188,61 @@ def grafico(dados, title):
   plt.show()
 
 #%%
-def dados_quic_0_100k():
+def dados_quic_0_100k(array_random):
   dados_quickSort = []
-  for k in range(0, 100_001, 1_000):
-    dados_quickSort.append(quickSort(sample(range(1, 200_000), k), show_output=False))
+  for a in array_random:
+    dados_quickSort.append(quickSort(a, show_output=False))
   return dados_quickSort
 
 #%%
-def dados_count_0_100k():
+def dados_count_0_100k(array_random):
   dados_count = []
-  for k in range(0,100_001, 1_000):
-    dados_count.append(counting_sort(sample(range(1, 200_000), k), show_output=False))
+  for a in array_random:
+    dados_count.append(counting_sort(a, show_output=False))
   return dados_count
 #%%
-def dados_bub_0_20k():
+def dados_bub_0_20k(array_random):
   dados_bub = []
-  for k in range(0,20_001, 1_000):
-    dados_bub.append(BubbleSort(sample(range(1, 200_000), k), show_output=False))
+  for a in array_random:
+    dados_bub.append(BubbleSort(a, show_output=False))
   return dados_bub
 #%%
+def compara_tempo(a, b, c):
+  plt.plot(a["Tamanho"], a["Tempo (s)"])
+  plt.plot(b["Tamanho"], b["Tempo (s)"])
+  plt.plot(c["Tamanho"], c["Tempo (s)"])
+  plt.ylim(-5, c["Tempo (s)"].max())
+  plt.legend(('QuickSort', 'CountingSort', 'BubbleSort'),
+           loc='upper right')
+  plt.tick_params(axis='x', rotation=60)
+  plt.show()
+
+#%%
 def sai_graphics():
-  (grafico(pd.DataFrame(dados_quic_0_100k(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "QuickSort"))
-  (grafico(pd.DataFrame(dados_count_0_100k(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "CountingSort"))
-  (grafico(pd.DataFrame(dados_bub_0_20k(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "BubbleSort"))
+  start = []
+  for k in range(0, 200_001, 1_000):
+    a = (sample(range(0, 200_000), k))
+    start.append(a)
+  array_random_one = []
+  array_random_two = []
+  array_random_three = []
+  for k in start:
+    array_random_one.append(k.copy())
+    array_random_two.append(k.copy())
+    array_random_three.append(k.copy())
+  a = pd.DataFrame(dados_quic_0_100k(array_random_one),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"])
+  grafico(a, "QuickSort")
+  b = pd.DataFrame(dados_count_0_100k(array_random_two),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"])
+  grafico(b, "CountingSort")
+  c= pd.DataFrame(dados_bub_0_20k(array_random_three[:21]),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"])
+  grafico(c, "BubbleSort")
+  compara_tempo(a,b,c)
 
 #%%
 def ordena_tudo():
-  (grafico(pd.DataFrame(dados_quick(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "QuickSort"))
-  (grafico(pd.DataFrame(dados_count(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "CountingSort"))
-  (grafico(pd.DataFrame(dados_bub(),columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "BubbleSort"))
+  (grafico(pd.DataFrame(dados_quick(), columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "QuickSort"))
+  (grafico(pd.DataFrame(dados_count(), columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "CountingSort"))
+  (grafico(pd.DataFrame(dados_bub(), columns=["Tamanho", "Comparações", "Trocas", "Tempo (s)"]), "BubbleSort"))
 
 #%%
 def menu():
